@@ -35,10 +35,10 @@ namespace DataService.DataAccess.DAL
                 arrParams[2].Value = BM.CreatedDate;
 
                 // exec
-                ds = SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_BRAND_ADD, arrParams);
+                SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_BRAND_ADD, arrParams);
 
                 // return (neu sp ko tra error code,msg thi tu gan default)
-                return new SportModels.DALOutput() { ErrorCode = CConfigDS.RESPONSE_CODE_SUCCESS, ErrorMessage = CConfigDS.RESPONSE_MSG_SUCCESS, SqlData = ds };
+                return new SportModels.DALOutput() { ErrorCode = CConfigDS.RESPONSE_CODE_SUCCESS, ErrorMessage = CConfigDS.RESPONSE_MSG_SUCCESS, SqlData = "OK" + BM.BrandName };
             }
             catch (Exception ex)
             {

@@ -10,6 +10,10 @@ namespace DataService
         public static void Register(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();
+            //                                 controller                        /routeApi                                               /controller
+            config.Routes.MapHttpRoute(name: "ApiSportBrand", routeTemplate: "api/sport/shop/brand/add", defaults: new { controller = "ApiSportBrand" });
+
+
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

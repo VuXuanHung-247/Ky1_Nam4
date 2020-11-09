@@ -1,0 +1,6 @@
+C:\Users\Admin\source\repos\SPORT_SHOP\BaseLib\bin\Release\BaseLib.dll
+C:\Users\Admin\source\repos\SPORT_SHOP\BaseLib\bin\Release\BaseLib.pdb
+C:\Users\Admin\source\repos\SPORT_SHOP\BaseLib\obj\Release\BaseLib.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\SPORT_SHOP\BaseLib\obj\Release\BaseLib.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\SPORT_SHOP\BaseLib\obj\Release\BaseLib.dll
+C:\Users\Admin\source\repos\SPORT_SHOP\BaseLib\obj\Release\BaseLib.pdb

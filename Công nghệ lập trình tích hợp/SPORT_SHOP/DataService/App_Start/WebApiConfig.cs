@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace DataService
 {
-    public static class WebApiConfig
+    public class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
+            // Web API configuration and services
+
+            // Web API routes
             config.MapHttpAttributeRoutes();
-            //                                 controller                        /routeApi                                               /controller
-            config.Routes.MapHttpRoute(name: "ApiSportBrand", routeTemplate: "api/sport/shop/brand/add", defaults: new { controller = "ApiSportBrand" });
+
+            config.Routes.MapHttpRoute(name: "ApiSportCategory", routeTemplate: "api/sport/shop/category/add", defaults: new { controller = "ApiSportCategory" });
 
 
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+           
         }
     }
 }

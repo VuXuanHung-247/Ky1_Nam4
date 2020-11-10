@@ -9,19 +9,19 @@ using System.Web.Http;
 
 namespace DataService.Controller
 {
-    public class ApiSportBrandController : ApiBaseController
+    public class ApiSportCategoryController : ApiBaseController
     {
         [HttpPost]
-        public HttpResponseMessage Api_Sport_Brand_Add(SportModels.BrandModel BM)
+        public HttpResponseMessage Api_Sport_Category_Add(SportModels.CategoryModel CM)
         {
             SportModels.ResponseModel RM = new SportModels.ResponseModel();
             try
             {
                 // 1. get data
-                RM = CSport.Api_Sport_Brand_Add_BLL(BM);
+                RM = CSport.Api_Sport_Category_Add_BLL(CM);
 
                 // 2. return response (code 200)
-                return CreateJsonResponse(BM);
+                return CreateJsonResponse(CM);
             }
             catch (Exception ex)
             {

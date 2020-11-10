@@ -10,7 +10,7 @@ namespace DataService.DataAccess.BLL
     public class CSport
     {
         //===================================== Add Brand =====================================//
-        static public SportModels.ResponseModel Api_Sport_Brand_Add_BLL(SportModels.BrandModel BM)
+        static public SportModels.ResponseModel Api_Sport_Category_Add_BLL(SportModels.CategoryModel CM)
         {
             SportModels.ResponseModel RM = new SportModels.ResponseModel();
 
@@ -19,7 +19,7 @@ namespace DataService.DataAccess.BLL
                 //lay du lieu tu DAL, return                
                 SportModels.DALOutput DALO = new SportModels.DALOutput();
 
-                DALO = CSqlSport.Api_Sport_Brand_Add_DAL(BM);
+                DALO = CSqlSport.Api_Sport_Category_Add_DAL(CM);
 
                 // response info (success)
                 RM.Code = DALO.ErrorCode;

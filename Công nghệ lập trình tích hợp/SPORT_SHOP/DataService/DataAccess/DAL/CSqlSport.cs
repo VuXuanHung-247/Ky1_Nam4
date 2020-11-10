@@ -12,7 +12,7 @@ namespace DataService.DataAccess.DAL
     internal class CSqlSport
     {
         //===================================== Add Brand =====================================//
-        public static SportModels.DALOutput Api_Sport_Brand_Add_DAL(SportModels.BrandModel BM)
+        public static SportModels.DALOutput Api_Sport_Category_Add_DAL(SportModels.CategoryModel CM)
         {
             DataSet ds = new DataSet();
             try
@@ -20,25 +20,25 @@ namespace DataService.DataAccess.DAL
                 SqlParameter[] arrParams = new SqlParameter[3];
 
                 // input params
-                arrParams[0] = new SqlParameter("brandName", SqlDbType.NVarChar, 50);
+                arrParams[0] = new SqlParameter("categoryName", SqlDbType.NVarChar, 50);
                 arrParams[0].Direction = ParameterDirection.Input;
-                arrParams[0].Value = BM.BrandName;
+                arrParams[0].Value = CM.CategoryName;
 
                 // input params
-                arrParams[1] = new SqlParameter("brandURL", SqlDbType.NVarChar, 200);
+                arrParams[1] = new SqlParameter("categoryURL", SqlDbType.NVarChar, 200);
                 arrParams[1].Direction = ParameterDirection.Input;
-                arrParams[1].Value = BM.BrandURL;
+                arrParams[1].Value = CM.CategoryURL;
 
                 // input params
-                arrParams[2] = new SqlParameter("createdDate", SqlDbType.Date);
+                arrParams[2] = new SqlParameter("createdDate", SqlDbType.NVarChar,20);
                 arrParams[2].Direction = ParameterDirection.Input;
-                arrParams[2].Value = BM.CreatedDate;
+                arrParams[2].Value = CM.CreatedDate;
 
                 // exec
-                SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_BRAND_ADD, arrParams);
+                SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_CATEGORY_ADD, arrParams);
 
                 // return (neu sp ko tra error code,msg thi tu gan default)
-                return new SportModels.DALOutput() { ErrorCode = CConfigDS.RESPONSE_CODE_SUCCESS, ErrorMessage = CConfigDS.RESPONSE_MSG_SUCCESS, SqlData = "OK" + BM.BrandName };
+                return new SportModels.DALOutput() { ErrorCode = CConfigDS.RESPONSE_CODE_SUCCESS, ErrorMessage = CConfigDS.RESPONSE_MSG_SUCCESS, SqlData = "OK" + CM.CategoryName };
             }
             catch (Exception ex)
             {

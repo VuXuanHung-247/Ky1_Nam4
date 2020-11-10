@@ -22,9 +22,14 @@ namespace DataService.DataAccess.BLL
         public const string RESPONSE_MSG_ACCESS_DENIED = "ACCESS_DENIED";
         public const string RESPONSE_DATA_NULL = null;
 
+        // common
+        internal const string CHAR_CRLF = "\r\n";
+        internal const string CHAR_TAB = "\t";
+        internal const string STRING_BLANK = "";
+        internal const string STRING_TRANS_ID_DEFAULT = "0";
 
-        //SP SPORT_BRAND
-        public const string STUDENTS_SQL_SP_APP_STUDENTS_LIST = "select * from SinhVienView";
-        public const string SPORT_SHOP_SQL_SP_BRAND_ADD = "sp_brand_add";
+        //SP SPORT_CATEGORY
+        //public const string STUDENTS_SQL_SP_APP_STUDENTS_LIST = "select * from SinhVienView";
+        public const string SPORT_SHOP_SQL_SP_CATEGORY_ADD = "sp_category_add";
     }
 }

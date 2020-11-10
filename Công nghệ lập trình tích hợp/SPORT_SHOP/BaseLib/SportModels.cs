@@ -58,11 +58,11 @@ namespace BaseLib
             public string CreatedDate { get; set; }             // Ngày đăng
             public string BrandID { get; set; }                 // Loại sản phẩm
         }
-        public class BrandModel
+        public class CategoryModel
         {
-            public string BrandID { get; set; }                 // Mã Loại sản phẩm
-            public string BrandName { get; set; }               // Tên Loại sản phẩm
-            public string BrandURL { get; set; }                // Link Loại sản phẩm
+            public string CategoryID { get; set; }                 // Mã Loại sản phẩm
+            public string CategoryName { get; set; }               // Tên Loại sản phẩm
+            public string CategoryURL { get; set; }                // Link Loại sản phẩm
             public string CreatedDate { get; set; }             // Ngày đăng
         }
         public class Properties

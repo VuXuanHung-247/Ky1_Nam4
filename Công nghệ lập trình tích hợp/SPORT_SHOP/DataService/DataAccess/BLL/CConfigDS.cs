@@ -10,6 +10,7 @@ namespace DataService.DataAccess.BLL
     {
         // web.config
         public static string CONNECTION_STRING_SQL_SPORT_SHOP = ConfigurationManager.ConnectionStrings["CONNECTION_STRING_SQL_SPORT_SHOP"].ConnectionString.ToString();
+        public static string CONNECTION_STRING_SQL_QUAN_CA_PHE = ConfigurationManager.ConnectionStrings["CONNECTION_STRING_SQL_SPORT_SHOP"].ConnectionString.ToString();
 
 
         // tat ca response tra ve phai la dang JSON
@@ -31,5 +32,7 @@ namespace DataService.DataAccess.BLL
         //SP SPORT_CATEGORY
         //public const string STUDENTS_SQL_SP_APP_STUDENTS_LIST = "select * from SinhVienView";
         public const string SPORT_SHOP_SQL_SP_CATEGORY_ADD = "sp_category_add";
+        public const string SP_QUAN_CAPHE_LOGIN = "sp_category_add";
+        public const string SP_QUAN_CAPHE_DRINK_SEARCH = "sp_category_add";
     }
 }

@@ -108,13 +108,22 @@ namespace BaseLib
             public string OrderID { get; set; }                 // Mà đơn hàng
             public string ProductID { get; set; }               // Mã sản phẩm
         }
-        public class Admin
+        public class User
         {
             public string UserId { get; set; }                  // Mã tài khoản
             public string UserUsername { get; set; }            // Tên tài khoản
             public string UserPassword { get; set; }            // Mật khẩu
             public string UserName { get; set; }                // Tên user
             public string CreatedDate { get; set; }             // Ngày tạo
+        }
+
+        public class Drink
+        {
+            public string DrinkId { get; set; }                  // Mã tài khoản
+            public string DrinkName { get; set; }            // Tên tài khoản
+            public string Description { get; set; }            // Mật khẩu
+            public string Price { get; set; }                // Tên user
+            public string DrinkImage { get; set; }             // Ngày tạo
         }
     }
 }

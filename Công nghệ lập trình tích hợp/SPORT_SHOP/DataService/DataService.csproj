@@ -90,6 +90,7 @@
     <Compile Include="Controller\ApiSportPropertiesController.cs" />
     <Compile Include="DataAccess\BLL\CConfigDS.cs" />
     <Compile Include="DataAccess\BLL\CSport.cs" />
+    <Compile Include="DataAccess\DAL\CQuerySport.cs" />
     <Compile Include="DataAccess\DAL\CSqlSport.cs" />
     <Compile Include="DataAccess\DAL\SqlHelper.cs" />
     <Compile Include="Global.asax.cs">
@@ -132,7 +133,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50045</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8080/</IISUrl>
+          <IISUrl>http://localhost:1234</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

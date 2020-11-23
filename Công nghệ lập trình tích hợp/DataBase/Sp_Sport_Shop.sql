@@ -1,6 +1,11 @@
 ﻿use SPORT_SHOP
 go
-
+go
+-----------------CATEGORY
+-----------------CATEGORY_LIST
+select*from CATEGORY
+go
+-----------------CATEGORY_ADD
 create proc sp_category_add
 (
    @categoryName nvarchar(50),

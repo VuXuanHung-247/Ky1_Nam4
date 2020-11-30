@@ -30,9 +30,9 @@ namespace DataService.DataAccess.BLL
         internal const string STRING_TRANS_ID_DEFAULT = "0";
 
         //SP SPORT_CATEGORY
-        //public const string STUDENTS_SQL_SP_APP_STUDENTS_LIST = "select * from SinhVienView";
+        //public const string SPORT_SHOP_SQL_SP_CATEGORY_GETLIST = "select * from CATEGORY";
         public const string SPORT_SHOP_SQL_SP_CATEGORY_ADD = "sp_category_add";
-        public const string SP_QUAN_CAPHE_LOGIN = "sp_category_add";
-        public const string SP_QUAN_CAPHE_DRINK_SEARCH = "sp_category_add";
+        public const string SPORT_SHOP_SQL_SP_CATEGORY_UPDATE = "sp_category_update";
+        public const string SPORT_SHOP_SQL_SP_CATEGORY_DELETE = "sp_category_delete";
     }
 }

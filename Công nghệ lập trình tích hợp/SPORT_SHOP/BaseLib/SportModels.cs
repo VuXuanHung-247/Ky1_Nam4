@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,12 +61,24 @@ namespace BaseLib
         }
         public class CategoryModel
         {
-            public string CategoryID { get; set; }                 // Mã Loại sản phẩm
+            public int CategoryID { get; set; }                 // Mã Loại sản phẩm
             public string CategoryName { get; set; }               // Tên Loại sản phẩm
             public string CategoryURL { get; set; }                // Link Loại sản phẩm
-            public string CreatedDate { get; set; }             // Ngày đăng
+            public DateTime CreatedDate { get; set; }             // Ngày đăng
+
+            public CategoryModel()
+            {
+
+            }
+            public CategoryModel(DataRow row)
+            {
+                this.CategoryID = (int)row["CategoryID"];
+                this.CategoryName = (string)row["CategoryName"];
+                this.CategoryURL = (string)row["CategoryURL"];
+                this.CreatedDate = (DateTime)row["CreatedDate"];
+            }
         }
-        public class Properties
+        public class PropertiesModel
         {
             public string PropertiesID { get; set; }            // Mã thuộc tính
             public string Color { get; set; }                   // Màu sắc
@@ -73,7 +86,7 @@ namespace BaseLib
             public string DetailDescription { get; set; }       // Mô tả chi tiết
             public string ProductID { get; set; }               // Mã sản phẩm
         }
-        public class Customer
+        public class CustomerModel
         {
             public string CustomerID { get; set; }             // Mã khách hàng
             public string CustomerUsername { get; set; }       // Tài khoản kh
@@ -84,7 +97,7 @@ namespace BaseLib
             public string CustomerAddress { get; set; }        // Địa chỉ
             public string CreatedDate { get; set; }            // Ngày đăng ký
         }
-        public class Order
+        public class OrderModel
         {
             public string OrderID { get; set; }                // Mã đơn hàng
             public string OrderDate { get; set; }              // Ngày đặt hàng
@@ -95,20 +108,20 @@ namespace BaseLib
             public string OrderStatusID { get; set; }          // Mã trạng thái đơn hàng
             public string CustomerID { get; set; }             // Mã khách hàng
         }
-        public class OrderStatus
+        public class OrderStatusModel
         {
             public string StatusID { get; set; }                // Mã Trạng thái đơn hàng
             public string StatusName { get; set; }              // Tên trạng thái đơn hàng
             public string CreatedDate { get; set; }             // Ngày tạo
         }
-        public class OrderDetail
+        public class OrderDetailModel
         {
             public string DetailID { get; set; }                // Mã chi tiết đơn hàng
             public string Quantity { get; set; }                // Số lượng
             public string OrderID { get; set; }                 // Mà đơn hàng
             public string ProductID { get; set; }               // Mã sản phẩm
         }
-        public class User
+        public class UserModel
         {
             public string UserId { get; set; }                  // Mã tài khoản
             public string UserUsername { get; set; }            // Tên tài khoản
@@ -116,14 +129,6 @@ namespace BaseLib
             public string UserName { get; set; }                // Tên user
             public string CreatedDate { get; set; }             // Ngày tạo
         }
-
-        public class Drink
-        {
-            public string DrinkId { get; set; }                  // Mã tài khoản
-            public string DrinkName { get; set; }            // Tên tài khoản
-            public string Description { get; set; }            // Mật khẩu
-            public string Price { get; set; }                // Tên user
-            public string DrinkImage { get; set; }             // Ngày tạo
-        }
     }
 }
+

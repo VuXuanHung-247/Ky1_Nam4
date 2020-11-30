@@ -1,16 +1,16 @@
 ﻿use SPORT_SHOP
 go
 go
------------------CATEGORY
------------------CATEGORY_LIST
-select*from CATEGORY
+-----------------CATEGORY-----------------
+-----------------CATEGORY_LIST-----------------
+select * from CATEGORY
 go
------------------CATEGORY_ADD
-create proc sp_category_add
+-----------------CATEGORY_ADD-----------------
+alter proc sp_category_add
 (
    @categoryName nvarchar(50),
    @categoryURL nvarchar(200),
-   @createdDate date
+   @createdDate datetime
 )
 AS
 BEGIN
@@ -27,5 +27,35 @@ BEGIN
 	SET IDENTITY_INSERT CATEGORY off
 END
 GO
-EXEC sp_category_add N'Bóng rổ','','2020-10-20'
+EXEC sp_category_add N'Bóng tenis','','2020-10-20'
 GO
+-----------------CATEGORY_UPDATE-----------------
+create proc sp_category_update 
+(
+   @categoryID int,
+   @categoryName nvarchar(50),
+   @categoryURL nvarchar(200),
+   @createdDate datetime
+)as
+begin 
+    update CATEGORY
+	set CategoryName = @categoryName,
+		CategoryURL = @categoryURL,
+		CreatedDate = @createdDate
+	where CategoryID = @categoryID
+end
+go
+exec sp_category_update 1,N'Bóng đá',N'New','2020-10-20'
+GO
+-----------------CATEGORY_DELETE-----------------
+create proc sp_category_delete 
+(
+   @categoryID int
+)as
+begin
+    delete from PRODUCT where CategoryID = @categoryID
+	delete from CATEGORY  where CategoryID = @categoryID
+end
+go
+exec sp_category_delete 10
+go

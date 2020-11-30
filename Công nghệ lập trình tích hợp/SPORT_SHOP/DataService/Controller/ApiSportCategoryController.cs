@@ -56,7 +56,7 @@ namespace DataService.Controller
                 RM = CSport.Api_Sport_Category_Add_BLL(CM);
 
                 // 2. return response (code 200)
-                return CreateJsonResponse(CM);
+                return CreateJsonResponse(RM);
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace DataService.Controller
                 RM = CSport.Api_Sport_Category_Update_BLL(CM);
 
                 // 2. return response (code 200)
-                return CreateJsonResponse(CM);
+                return CreateJsonResponse(RM);
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace DataService.Controller
                 RM = CSport.Api_Sport_Category_Delete_BLL(CM);
 
                 // 2. return response (code 200)
-                return CreateJsonResponse(CM);
+                return CreateJsonResponse(RM);
             }
             catch (Exception ex)
             {

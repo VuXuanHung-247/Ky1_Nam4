@@ -12,7 +12,8 @@ namespace DataService
             config.MapHttpAttributeRoutes();
 
            // config.Routes.MapHttpRoute(name: "ApiSportCategory", routeTemplate: "api/sport/shop/category/add", defaults: new { controller = "ApiSportCategory" });
-            config.Routes.MapHttpRoute(name: "ApiSportCategory", routeTemplate: "api/sport/category", defaults: new { controller = "ApiSportCategory" });
+            config.Routes.MapHttpRoute(name: "ApiSportCategory",             routeTemplate: "api/sport/category",             defaults: new { controller = "ApiSportCategory" });
+            config.Routes.MapHttpRoute(name: "ApiSportCategorySearch",       routeTemplate: "api/sport/category/search",      defaults: new { controller = "ApiSportCategorySearch" });
 
         }
     }

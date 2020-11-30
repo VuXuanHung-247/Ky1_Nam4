@@ -58,4 +58,20 @@ begin
 end
 go
 exec sp_category_delete 10
+GO
+-----------------CATEGORY_SEARCH_BY_Name_&_CreateDate-----------------
+create PROCEDURE sp_category_search 
+(
+    @categoryName nvarchar(50),
+	@createdDate datetime	
+) as
+begin
+    select CategoryID, CategoryName,CreatedDate , CategoryURL
+    from
+        CATEGORY 
+    where
+        (@categoryName IS NULL OR CategoryName like '%'+@categoryName+'%')
+		AND (@createdDate IS NULL OR CreatedDate = @createdDate)
+end
 go
+EXEC sp_category_search N'Bóng',null

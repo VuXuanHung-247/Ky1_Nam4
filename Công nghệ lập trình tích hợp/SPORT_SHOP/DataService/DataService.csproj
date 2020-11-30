@@ -87,6 +87,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controller\ApiBaseController.cs" />
     <Compile Include="Controller\ApiSportCategoryController.cs" />
+    <Compile Include="Controller\ApiSportCategorySearchController.cs" />
     <Compile Include="Controller\ApiSportPropertiesController.cs" />
     <Compile Include="DataAccess\BLL\CConfigDS.cs" />
     <Compile Include="DataAccess\BLL\CSport.cs" />

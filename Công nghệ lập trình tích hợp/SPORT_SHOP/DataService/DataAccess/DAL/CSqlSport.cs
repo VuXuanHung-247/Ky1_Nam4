@@ -39,7 +39,7 @@ namespace DataService.DataAccess.DAL
                 arrParams[2].Value = CM.CreatedDate;
 
                 // exec
-                SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_CATEGORY_ADD, arrParams);
+                ds = SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_CATEGORY_ADD, arrParams);
 
                 // return (neu sp ko tra error code,msg thi tu gan default)
                 return new SportModels.DALOutput() { ErrorCode = CConfigDS.RESPONSE_CODE_SUCCESS, ErrorMessage = CConfigDS.RESPONSE_MSG_SUCCESS, SqlData = ds };
@@ -82,7 +82,7 @@ namespace DataService.DataAccess.DAL
                 arrParams[3].Value = CM.CreatedDate;
 
                 // exec
-                SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_CATEGORY_UPDATE, arrParams);
+                ds = SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_CATEGORY_UPDATE, arrParams);
 
                 // return (neu sp ko tra error code,msg thi tu gan default)
                 return new SportModels.DALOutput() { ErrorCode = CConfigDS.RESPONSE_CODE_SUCCESS, ErrorMessage = CConfigDS.RESPONSE_MSG_SUCCESS, SqlData = ds };
@@ -110,7 +110,7 @@ namespace DataService.DataAccess.DAL
                 arrParams[0].Value = CM.CategoryID;
                 
                 // exec
-                SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_CATEGORY_DELETE, arrParams);
+                ds = SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_CATEGORY_DELETE, arrParams);
 
                 // return (neu sp ko tra error code,msg thi tu gan default)
                 return new SportModels.DALOutput() { ErrorCode = CConfigDS.RESPONSE_CODE_SUCCESS, ErrorMessage = CConfigDS.RESPONSE_MSG_SUCCESS, SqlData = ds };
@@ -124,6 +124,38 @@ namespace DataService.DataAccess.DAL
             }
         }
 
+        //===================================== Search Category =====================================//
+        public static SportModels.DALOutput Api_Sport_Category_Search_DAL(SportModels.CategoryModel CM)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] arrParams = new SqlParameter[2];
+
+                // input params
+                arrParams[0] = new SqlParameter("categoryName", SqlDbType.NVarChar,50);
+                arrParams[0].Direction = ParameterDirection.Input;
+                arrParams[0].Value = CM.CategoryName;
+
+                // input params
+                arrParams[1] = new SqlParameter("createdDate", SqlDbType.DateTime);
+                arrParams[1].Direction = ParameterDirection.Input;
+                arrParams[1].Value = CM.CreatedDate;
+
+                // exec
+                ds = SqlHelper.ExecuteDataset(CConfigDS.CONNECTION_STRING_SQL_SPORT_SHOP, CommandType.StoredProcedure, CConfigDS.SPORT_SHOP_SQL_SP_CATEGORY_SEARCH, arrParams);
+
+                // return (neu sp ko tra error code,msg thi tu gan default)
+                return new SportModels.DALOutput() { ErrorCode = CConfigDS.RESPONSE_CODE_SUCCESS, ErrorMessage = CConfigDS.RESPONSE_MSG_SUCCESS, SqlData = ds };
+            }
+            catch (Exception ex)
+            {
+                // log error
+                CLog.LogError(CBase.GetDeepCaller(), CBase.GetDetailError(ex));
+                // error => return null
+                return new SportModels.DALOutput() { ErrorCode = CBase.GetLayerErrorCode(CBase.LAYER.DAL), ErrorMessage = ex.Message, SqlData = null };
+            }
+        }
         // End.
     }
 }

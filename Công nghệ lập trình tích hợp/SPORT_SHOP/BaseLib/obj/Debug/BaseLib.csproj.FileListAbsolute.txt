@@ -8,4 +8,3 @@ C:\Users\Admin\Desktop\GIT\Ky1_Nam4\Công nghệ lập trình tích hợp\SPORT_
 C:\Users\Admin\Desktop\GIT\Ky1_Nam4\Công nghệ lập trình tích hợp\SPORT_SHOP\BaseLib\obj\Debug\BaseLib.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\GIT\Ky1_Nam4\Công nghệ lập trình tích hợp\SPORT_SHOP\BaseLib\obj\Debug\BaseLib.dll
 C:\Users\Admin\Desktop\GIT\Ky1_Nam4\Công nghệ lập trình tích hợp\SPORT_SHOP\BaseLib\obj\Debug\BaseLib.pdb
-C:\Users\Admin\Desktop\GIT\Ky1_Nam4\Công nghệ lập trình tích hợp\SPORT_SHOP\BaseLib\obj\Debug\BaseLib.csprojAssemblyReference.cache

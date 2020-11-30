@@ -31,8 +31,9 @@ namespace DataService.DataAccess.BLL
 
         //SP SPORT_CATEGORY
         //public const string SPORT_SHOP_SQL_SP_CATEGORY_GETLIST = "select * from CATEGORY";
-        public const string SPORT_SHOP_SQL_SP_CATEGORY_ADD = "sp_category_add";
-        public const string SPORT_SHOP_SQL_SP_CATEGORY_UPDATE = "sp_category_update";
-        public const string SPORT_SHOP_SQL_SP_CATEGORY_DELETE = "sp_category_delete";
+        public const string SPORT_SHOP_SQL_SP_CATEGORY_ADD         = "sp_category_add";
+        public const string SPORT_SHOP_SQL_SP_CATEGORY_UPDATE      = "sp_category_update";
+        public const string SPORT_SHOP_SQL_SP_CATEGORY_DELETE      = "sp_category_delete";
+        public const string SPORT_SHOP_SQL_SP_CATEGORY_SEARCH      = "sp_category_search";
     }
 }

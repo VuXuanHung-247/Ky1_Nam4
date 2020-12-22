@@ -26,7 +26,7 @@ namespace DataService.Controller
         }
         private ApiSportCategoryController() { }
         [HttpGet]
-        public List<CategoryModel> GetStudentsLists()
+        public List<CategoryModel> GetCategoryList()
         {
             List<CategoryModel> list = new List<CategoryModel>();
 

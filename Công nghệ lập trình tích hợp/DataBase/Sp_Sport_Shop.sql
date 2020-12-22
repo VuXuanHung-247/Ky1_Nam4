@@ -74,4 +74,4 @@ begin
 		AND (@createdDate IS NULL OR CreatedDate = @createdDate)
 end
 go
-EXEC sp_category_search N'Bóng',null
+EXEC sp_category_search N'Bóng','2020-10-20'

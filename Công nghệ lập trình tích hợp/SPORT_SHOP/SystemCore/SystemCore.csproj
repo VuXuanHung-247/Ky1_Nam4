@@ -7,8 +7,8 @@
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="SharedKernel\" />
     <Folder Include="Temporaries\" />
+    <Folder Include="SharedKernel\" />
   </ItemGroup>
 
 </Project>

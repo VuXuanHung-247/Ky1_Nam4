@@ -9,7 +9,7 @@ namespace CommonLib.Implementations
 	/// 2019-01-04 14:58:37 ngocta2
 	/// class log script truy van SQL Server / Oracle / Redis
 	/// </summary>
-	public class CInfoLogger : CBaseLogger
+	public class CInfoLogger : CBaseLogger, IInfoLogger
 	{
 		private const string __TEMPLATE = @"=================
 Source  = {0}
@@ -35,7 +35,7 @@ Data    = {1}";
 		/// <param name="ex"></param>
 		public void LogInfo(string data)
 		{
-			//this._logger.Information(__TEMPLATE, GetDeepCaller(), data);
+			this._logger.Information(__TEMPLATE, GetDeepCaller(), data);
 		}
 
 		/// <summary>
@@ -46,14 +46,14 @@ Data    = {1}";
 		/// <param name="ec"></param>
 		public void LogInfoContext(TExecutionContext ec, string data)
 		{
-			//this._logger.Information(
-			//	__TEMPLATE_CONTEXT,
-			//	GetDeepCaller(),				
-			//	data,
-			//	ThreadId,
-			//	TaskId,
-			//	ec.ElapsedMilliseconds,
-			//	ec.Id);
+			this._logger.Information(
+				__TEMPLATE_CONTEXT,
+				GetDeepCaller(),				
+				data,
+				ThreadId,
+				TaskId,
+				ec.ElapsedMilliseconds,
+				ec.Id);
 
 			// 2. log vao buffer
 			WriteBufferMid(ec, data, true);

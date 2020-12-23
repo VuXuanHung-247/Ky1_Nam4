@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using System;
 using System.Diagnostics;
@@ -35,7 +34,7 @@ namespace CommonLib.Implementations
 	//  }
 	//}
 	/// </summary>
-	public abstract class CBaseLogger : CInstance
+	public abstract class CBaseLogger : CInstance, IDisposable
 	{
 		// const
 		public const string __CONFIG_PATH_POS = "Serilog:WriteTo:0:Args:path"; // 2019-08-23 09:06:40 ngocta2 can public de lay sau nay // 2019-09-25 13:10:09 ngocta2 "Serilog:WriteTo:0:Args:appPath" => "Serilog:WriteTo:0:Args:path"
@@ -48,14 +47,14 @@ namespace CommonLib.Implementations
 
 		// var
 		protected bool _debugFlag = false;
-		//protected ILogger _logger;
+		protected ILogger _logger;
 		private string _fullLogPath;
 		private readonly bool _randomFileName;
 		private readonly string _logDirPath; // 2019-08-23 09:08:57 ngocta2 => D:\WebLog\S6G\CommonLib.Tests\DEBUG
 		private readonly string _logRootPath; // 2019-08-23 09:08:57 ngocta2, 2019-09-25 13:21:11 ngocta2 => D:\WebLog\S6G\CommonLib.Tests
 
 		// prop (public)
-		//public ILogger Logger { get { return this._logger; } }
+		public ILogger Logger { get { return this._logger; } }
 		public string FullLogPath { get { return this._fullLogPath; } } // public ra de sau dung cho unit test, read lai file, check data
 		public string Timestamp { get { return DateTime.Now.ToString(EGlobalConfig.__DATETIME_REDIS_SCORE); ; } } // moc time exec code
 
@@ -114,53 +113,53 @@ namespace CommonLib.Implementations
 				if (!Directory.Exists(dirPath))
 					Directory.CreateDirectory(dirPath);
 
-				//var serilog = new LoggerConfiguration()
-				//	.ReadFrom.Configuration(configuration)
-				//	.WriteTo.Async(a => a.File(fullLogPath))
-				//	.CreateLogger();
-				//this._logger = serilog;
+				var serilog = new LoggerConfiguration()
+					.ReadFrom.Configuration(configuration)
+					.WriteTo.Async(a => a.File(fullLogPath))
+					.CreateLogger();
+				this._logger = serilog;
 			}
 		}
 
 		// NOTE: Leave out the finalizer altogether if this class doesn't
 		// own unmanaged resources, but leave the other methods
 		// exactly as they are.
-		//~CBaseLogger()
-		//{
-		//	// Finalizer calls Dispose(false)
-		//	Dispose(false);
-		//}
+		~CBaseLogger()
+		{
+			// Finalizer calls Dispose(false)
+			Dispose(false);
+		}
 
 		/// <summary>
 		/// free resource
 		/// Dispose() calls Dispose(true)
 		/// </summary>
-		//public void Dispose()
-		//{
-		//	Dispose(true);
-		//	GC.SuppressFinalize(this);
-		//	return;
-		//}
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+			return;
+		}
 
-		//protected virtual void Dispose(bool disposing)
-		//{
-		//	if (disposing)
-		//	{
-		//		// free managed resources			
-		//		this.FreeResource();
-		//	}
-		//	// free native resources if there are any.			
-		//}
+		protected virtual void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				// free managed resources			
+				this.FreeResource();
+			}
+			// free native resources if there are any.			
+		}
 
-		///// <summary>
-		///// destructor
-		///// </summary>
-		//public void FreeResource()
-		//{
-		//	// At application shutdown (results in monitors getting StopMonitoring calls)
-		//	Log.CloseAndFlush();
-		//	this._logger = null; // dong nay ko can thiet
-		//}
+		/// <summary>
+		/// destructor
+		/// </summary>
+		public void FreeResource()
+		{
+			// At application shutdown (results in monitors getting StopMonitoring calls)
+			Log.CloseAndFlush();
+			this._logger = null; // dong nay ko can thiet
+		}
 
 		/// <summary>
 		/// 2019-01-03 15:54:32 ngocta2

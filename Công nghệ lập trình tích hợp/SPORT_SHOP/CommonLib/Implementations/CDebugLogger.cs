@@ -11,7 +11,7 @@ namespace CommonLib.Implementations
     /// 2019-01-04 14:58:37 ngocta2
     /// class debug tim loi
     /// </summary>
-    public class CDebugLogger : CBaseLogger
+    public class CDebugLogger : CBaseLogger, IDebugLogger
     {
         private const string __TEMPLATE = @"=================
 EId     = {0} ({1}) [{2}]
@@ -54,14 +54,14 @@ Finally = {9}";
 
             // chi log khi _flag set = true
             // log lien tuc se gay cham system
-            //if (this._debugFlag)
-            //    this._logger.Debug(
-            //        __TEMPLATE,
-            //        eId,
-            //        ThreadId,
-            //        TaskId,
-            //        GetDeepCaller(),
-            //        data);
+            if (this._debugFlag)
+                this._logger.Debug(
+                    __TEMPLATE,
+                    eId,
+                    ThreadId,
+                    TaskId,
+                    GetDeepCaller(),
+                    data);
 
             // return EC object de debug tiep sau do
             return new TExecutionContext()
@@ -122,19 +122,19 @@ Finally = {9}";
         {
             // chi log khi _flag set = true
             // log lien tuc se gay cham system
-            //if (this._debugFlag)
-            //    this._logger.Debug(
-            //        __TEMPLATE_CONTEXT,
-            //        GetDeepCaller(),
-            //        ec.Id,
-            //        ec.ThreadId,
-            //        ec.TaskId,
-            //        ec.Buffer,
-            //        ec.Id,
-            //        ec.ThreadId,
-            //        ec.TaskId,
-            //        ec.ElapsedMilliseconds,
-            //        data);
+            if (this._debugFlag)
+                this._logger.Debug(
+                    __TEMPLATE_CONTEXT,
+                    GetDeepCaller(),
+                    ec.Id,
+                    ec.ThreadId,
+                    ec.TaskId,
+                    ec.Buffer,
+                    ec.Id,
+                    ec.ThreadId,
+                    ec.TaskId,
+                    ec.ElapsedMilliseconds,
+                    data);
         }
 
         ///// <summary>
@@ -174,7 +174,7 @@ Finally = {9}";
 		/// <param name="data"></param>
 		public void LogDebugShort(string data)
 		{
-			//this._logger.Debug(data);
+			this._logger.Debug(data);
 		}
 
 		/// <summary>

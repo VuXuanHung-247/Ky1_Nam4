@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Configuration;
 using System.IO;
 using System.Reflection;
 using SystemCore.Entities;
@@ -62,10 +61,10 @@ namespace CommonLib.Implementations
                         _configFileName = __JSON_CONFIG_FILE;
 
 					//if (File.Exists(_configFolderPath + "\\" + _configFileName))
-					//_configuration = new ConfigurationBuilder()
-					//	.SetBasePath(_configFolderPath)
-					//	.AddJsonFile(_configFileName, optional: true, reloadOnChange: true)
-					//	.Build();
+					_configuration = new ConfigurationBuilder()
+						.SetBasePath(_configFolderPath)
+						.AddJsonFile(_configFileName, optional: true, reloadOnChange: true)
+						.Build();
                 }
 
 				return _configuration;
@@ -172,12 +171,12 @@ namespace CommonLib.Implementations
         {
             lock (_locker)
             {
-                //if (_cCommon == null)
-                //{
-                //    CErrorLogger cErrorLogger = CS6GFactory.GetErrorLoggerInstance();
-                //    CDebugLogger cDebugLogger = CS6GFactory.GetDebugLoggerInstance();
-                //    _cCommon = new CCommon(cErrorLogger, cDebugLogger);
-                //}
+                if (_cCommon == null)
+                {
+                    CErrorLogger cErrorLogger = CS6GFactory.GetErrorLoggerInstance();
+                    CDebugLogger cDebugLogger = CS6GFactory.GetDebugLoggerInstance();
+                    _cCommon = new CCommon(cErrorLogger, cDebugLogger);
+                }
 
                 return _cCommon;
             }
@@ -195,11 +194,11 @@ namespace CommonLib.Implementations
             {
                 if (_cMonitor == null)
                 {
-                    //CErrorLogger cErrorLogger    = CS6GFactory.GetErrorLoggerInstance();
-                    //CDebugLogger cDebugLogger    = CS6GFactory.GetDebugLoggerInstance();
-                    //IConfiguration configuration = CS6GFactory.GetConfigInstance();
-                    //CCommon cCommon              = CS6GFactory.GetCommonInstance();
-                    //_cMonitor                    = new CMonitor(cErrorLogger, cDebugLogger, cCommon, configuration);
+                    CErrorLogger cErrorLogger    = CS6GFactory.GetErrorLoggerInstance();
+                    CDebugLogger cDebugLogger    = CS6GFactory.GetDebugLoggerInstance();
+                    IConfiguration configuration = CS6GFactory.GetConfigInstance();
+                    CCommon cCommon              = CS6GFactory.GetCommonInstance();
+                    _cMonitor                    = new CMonitor(cErrorLogger, cDebugLogger, cCommon, configuration);
 
                 }
 
@@ -220,17 +219,17 @@ namespace CommonLib.Implementations
         {
             lock (_locker)
             {
-     //           if (_s6GApp == null)
-     //           {
-     //               CErrorLogger cErrorLogger    = CS6GFactory.GetErrorLoggerInstance();
-     //               CDebugLogger cDebugLogger    = CS6GFactory.GetDebugLoggerInstance();
-     //               CSqlLogger cSqlLogger        = CS6GFactory.GetSqlLoggerInstance();
-					//CInfoLogger cInfoLogger      = CS6GFactory.GetInfoLoggerInstance();
-     //               CCommon cCommon              = CS6GFactory.GetCommonInstance();
-     //               IConfiguration configuration = CS6GFactory.GetConfigInstance();
-     //               CMonitor cMonitor            = CS6GFactory.GetMonitorInstance();
-     //               _s6GApp                      = new CS6GApp(cErrorLogger, cDebugLogger, cSqlLogger, cInfoLogger, cCommon, configuration, cMonitor);
-     //           }
+                if (_s6GApp == null)
+                {
+                    CErrorLogger cErrorLogger    = CS6GFactory.GetErrorLoggerInstance();
+                    CDebugLogger cDebugLogger    = CS6GFactory.GetDebugLoggerInstance();
+                    CSqlLogger cSqlLogger        = CS6GFactory.GetSqlLoggerInstance();
+					CInfoLogger cInfoLogger      = CS6GFactory.GetInfoLoggerInstance();
+                    CCommon cCommon              = CS6GFactory.GetCommonInstance();
+                    IConfiguration configuration = CS6GFactory.GetConfigInstance();
+                    CMonitor cMonitor            = CS6GFactory.GetMonitorInstance();
+                    _s6GApp                      = new CS6GApp(cErrorLogger, cDebugLogger, cSqlLogger, cInfoLogger, cCommon, configuration, cMonitor);
+                }
 
                 return _s6GApp;
             }

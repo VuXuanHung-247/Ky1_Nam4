@@ -10,7 +10,7 @@ namespace CommonLib.Implementations
     /// 2019-01-03 14:38:15 ngocta2
     /// class ghi log error
     /// </summary>
-    public class CErrorLogger : CBaseLogger
+    public class CErrorLogger : CBaseLogger, IErrorLogger
     {
         private const string __TEMPLATE = @"=================
 Message     = {0}
@@ -43,11 +43,11 @@ TargetSite  = {6}";
         /// <param name="ex"></param>
         public void LogError(Exception ex)
         {   
-            //this._logger.Error(
-            //    __TEMPLATE,
-            //    ex.Message,
-            //    ex.StackTrace.TrimStart(),
-            //    ex.TargetSite);            
+            this._logger.Error(
+                __TEMPLATE,
+                ex.Message,
+                ex.StackTrace.TrimStart(),
+                ex.TargetSite);            
         }
 
 
@@ -62,15 +62,15 @@ TargetSite  = {6}";
         public void LogErrorContext(Exception ex, TExecutionContext ec)
         {
             // 1. log vao file cua Serilog
-    //        this._logger.Error(
-    //            __TEMPLATE_CONTEXT,
-    //            ec.Id,
-    //            ThreadId,
-    //            TaskId,
-    //            ec.LastContext+ $" ; ec.Data={ec.Data}", // 2019-11-20 17:19:25 ngocta2 bo, nhung bo thi run Test_LogError_Context ra failed
-				//ex.Message,
-    //            ex.StackTrace.TrimStart(),
-    //            ex.TargetSite);
+            this._logger.Error(
+                __TEMPLATE_CONTEXT,
+                ec.Id,
+                ThreadId,
+                TaskId,
+                ec.LastContext+ $" ; ec.Data={ec.Data}", // 2019-11-20 17:19:25 ngocta2 bo, nhung bo thi run Test_LogError_Context ra failed
+				ex.Message,
+                ex.StackTrace.TrimStart(),
+                ex.TargetSite);
 
             // 2. log vao buffer
             WriteBufferMid(ec, ex.Message, true);

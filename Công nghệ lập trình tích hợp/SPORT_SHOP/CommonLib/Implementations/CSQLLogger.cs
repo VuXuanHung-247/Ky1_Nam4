@@ -11,7 +11,7 @@ namespace CommonLib.Implementations
     /// 2019-01-04 14:58:37 ngocta2
     /// class log script truy van SQL Server / Oracle / Redis
     /// </summary>
-    public class CSqlLogger: CBaseLogger
+    public class CSqlLogger: CBaseLogger, ISqlLogger
     {
         private const string __TEMPLATE = @"=================
 Source  = {0}
@@ -39,7 +39,7 @@ Data    = {4}";
         /// <param name="ex"></param>
         public void LogSql(string data)
         {
-            //this._logger.Information(__TEMPLATE, GetDeepCaller(), data);
+            this._logger.Information(__TEMPLATE, GetDeepCaller(), data);
         }
 
         /// <summary>
@@ -50,13 +50,13 @@ Data    = {4}";
         /// <param name="ec"></param>
         public void LogSqlContext(TExecutionContext ec, string data)
         {
-            //this._logger.Information(
-            //    __TEMPLATE_CONTEXT,
-            //    GetDeepCaller(),
-            //    ec.Id,
-            //    ThreadId,
-            //    TaskId,
-            //    data);
+            this._logger.Information(
+                __TEMPLATE_CONTEXT,
+                GetDeepCaller(),
+                ec.Id,
+                ThreadId,
+                TaskId,
+                data);
 
             // 2. log vao buffer
             WriteBufferMid(ec, data, true);

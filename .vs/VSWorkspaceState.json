@@ -3,7 +3,9 @@
     "",
     "\\Công nghệ lập trình tích hợp",
     "\\Công nghệ lập trình tích hợp\\SPORT_SHOP",
-    "\\Công nghệ lập trình tích hợp\\SPORT_SHOP\\BaseLib"
+    "\\Công nghệ lập trình tích hợp\\SPORT_SHOP\\BaseLib",
+    "\\Công nghệ lập trình tích hợp\\SPORT_SHOP\\SPORT_WEB",
+    "\\Công nghệ lập trình tích hợp\\SPORT_SHOP\\SPORT_WEB\\Controllers"
   ],
   "SelectedNode": "\\Công nghệ lập trình tích hợp\\SPORT_SHOP\\BaseLib\\SportModels.cs",
   "PreviewInSolutionExplorer": false

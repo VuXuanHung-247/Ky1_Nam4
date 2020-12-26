@@ -26,9 +26,9 @@ namespace DataService.Controller
         }
         private ApiSportCategoryController() { }
         [HttpGet]
-        public List<CategoryModel> GetCategoryList()
+        public List<BaseLib.CategoryModel> GetCategoryList()
         {
-            List<CategoryModel> list = new List<CategoryModel>();
+            List<BaseLib.CategoryModel> list = new List<BaseLib.CategoryModel>();
 
             string query = "select * from CATEGORY";
 
@@ -36,7 +36,7 @@ namespace DataService.Controller
 
             foreach (DataRow item in data.Rows)
             {
-                CategoryModel cm = new CategoryModel(item);
+                BaseLib.CategoryModel cm = new BaseLib.CategoryModel(item);
                 list.Add(cm);
             }
 

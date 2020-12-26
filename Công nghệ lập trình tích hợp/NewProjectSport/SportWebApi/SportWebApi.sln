@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1082
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_Sport", "WebApi_Sport\WebApi_Sport.csproj", "{691961BD-6839-42BD-BCE6-3D92B1713170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppMVC_Sport", "WebAppMVC_Sport\WebAppMVC_Sport.csproj", "{CDA7F77C-3B09-401A-8BD9-2A68CB8F05EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{691961BD-6839-42BD-BCE6-3D92B1713170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691961BD-6839-42BD-BCE6-3D92B1713170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691961BD-6839-42BD-BCE6-3D92B1713170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691961BD-6839-42BD-BCE6-3D92B1713170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA7F77C-3B09-401A-8BD9-2A68CB8F05EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA7F77C-3B09-401A-8BD9-2A68CB8F05EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA7F77C-3B09-401A-8BD9-2A68CB8F05EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA7F77C-3B09-401A-8BD9-2A68CB8F05EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC6CD336-90AB-407B-BE85-190A2CB88A5D}
+	EndGlobalSection
+EndGlobal

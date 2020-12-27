@@ -98,6 +98,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Template_Admin\css\bootstrap-table.css" />
+    <Content Include="Assets\Template_Admin\css\bootstrap-theme.css" />
+    <Content Include="Assets\Template_Admin\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\Template_Admin\css\bootstrap.css" />
+    <Content Include="Assets\Template_Admin\css\bootstrap.min.css" />
+    <Content Include="Assets\Template_Admin\css\datepicker.css" />
+    <Content Include="Assets\Template_Admin\css\datepicker3.css" />
+    <Content Include="Assets\Template_Admin\css\styles.css" />
+    <Content Include="Assets\Template_Admin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Template_Admin\js\bootstrap-datepicker.js" />
+    <Content Include="Assets\Template_Admin\js\bootstrap-table.js" />
+    <Content Include="Assets\Template_Admin\js\bootstrap.js" />
+    <Content Include="Assets\Template_Admin\js\bootstrap.min.js" />
+    <Content Include="Assets\Template_Admin\js\chart-data.js" />
+    <Content Include="Assets\Template_Admin\js\chart.min.js" />
+    <Content Include="Assets\Template_Admin\js\css\bootstrap-table.css" />
+    <Content Include="Assets\Template_Admin\js\css\bootstrap-theme.css" />
+    <Content Include="Assets\Template_Admin\js\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\Template_Admin\js\css\bootstrap.css" />
+    <Content Include="Assets\Template_Admin\js\css\bootstrap.min.css" />
+    <Content Include="Assets\Template_Admin\js\css\datepicker.css" />
+    <Content Include="Assets\Template_Admin\js\css\datepicker3.css" />
+    <Content Include="Assets\Template_Admin\js\css\styles.css" />
+    <Content Include="Assets\Template_Admin\js\easypiechart-data.js" />
+    <Content Include="Assets\Template_Admin\js\easypiechart.js" />
+    <Content Include="Assets\Template_Admin\js\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Template_Admin\js\html5shiv.min.js" />
+    <Content Include="Assets\Template_Admin\js\jquery-1.11.1.min.js" />
+    <Content Include="Assets\Template_Admin\js\respond.min.js" />
+    <Content Include="Assets\Template_Admin\js\student.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -108,6 +138,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Template_Admin\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\Template_Admin\css\bootstrap.css.map" />
+    <Content Include="Assets\Template_Admin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Template_Admin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Template_Admin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Template_Admin\js\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\Template_Admin\js\css\bootstrap.css.map" />
+    <Content Include="Assets\Template_Admin\js\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Template_Admin\js\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Template_Admin\js\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -149,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Template_Client\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebApi_Sport\WebApi_Sport.csproj">

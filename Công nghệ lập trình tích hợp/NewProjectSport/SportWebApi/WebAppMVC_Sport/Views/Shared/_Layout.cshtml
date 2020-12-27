@@ -1,40 +1,94 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sport Management</title>
+
+    <link href="~/Assets/Template_Admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/Template_Admin/css/datepicker.css" rel="stylesheet" />
+    <link href="~/Assets/Template_Admin/css/datepicker3.css" rel="stylesheet" />
+    <link href="~/Assets/Template_Admin/css/styles.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <a class="navbar-brand" href="#"><span>SPORT SHOP</span>Admin</a>
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> User <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
-        </div>
-    </div>
 
-    <div class="container body-content">
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <form role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
+        <ul class="nav menu">
+            <li class="active"><a href="@Url.Action("Index", "Category")"><span class="glyphicon glyphicon-dashboard"></span> Danh mục</a></li>
+            <li><a href="@Url.Action("Index", "LoaiSanPham")"><span class="glyphicon glyphicon-th"></span> Sản phẩm</a></li>
+            <li><a href="@Url.Action("Index", "LoaiSanPham")"><span class="glyphicon glyphicon-stats"></span> Đơn đặt hàng</a></li>
+            <li><a href="@Url.Action("Index", "LoaiSanPham")"><span class="glyphicon glyphicon-list-alt"></span> Thuộc tính</a></li>
+            <li><a href="@Url.Action("Index", "LoaiSanPham")"><span class="glyphicon glyphicon-pencil"></span> Khách hàng</a></li>
+            <!-- -->
+            <li role="presentation" class="divider"></li>
+            <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Login Page</a></li>
+        </ul>
+    </div><!--/.sidebar-->
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
     </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Assets/Template_Admin/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Assets/Template_Admin/js/bootstrap.min.js"></script>
+    <script src="~/Assets/Template_Admin/js/chart.min.js"></script>
+    <script src="~/Assets/Template_Admin/js/chart-data.js"></script>
+    <script src="~/Assets/Template_Admin/js/easypiechart.js"></script>
+    <script src="~/Assets/Template_Admin/js/easypiechart-data.js"></script>
+    <script src="~/Assets/Template_Admin/js/bootstrap-datepicker.js"></script>
+
+
+    <script>
+        $('#calendar').datepicker({
+        });
+
+        !function ($) {
+            $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                $(this).find('em:first').toggleClass("glyphicon-minus");
+            });
+            $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+        }(window.jQuery);
+
+        $(window).on('resize', function () {
+            if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+        })
+        $(window).on('resize', function () {
+            if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+        })
+    </script>
 </body>
 </html>
